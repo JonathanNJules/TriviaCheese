@@ -1,0 +1,11 @@
+[uDD::Log][2018-05-30 06:13:55] Start
+[uDD::Log][2018-05-30 06:13:55] Duplicator::Initialize() => OK.
+[uDD::Log][2018-05-30 06:13:55]     ID    : 0
+[uDD::Log][2018-05-30 06:13:55]     Size  : (1920, 1080)
+[uDD::Log][2018-05-30 06:13:55]     DPI   : (165, 166)
+[uDD::Log][2018-05-30 06:13:55]     Rot   : Landscape
+[uDD::Err][2018-05-30 06:14:41] Monitor::GetPixels() => CopyTextureFromGpuToCpu() has not been called yet.
+[uDD::Err][2018-05-30 06:14:41] Monitor::GetPixels() => CopyTextureFromGpuToCpu() has not been called yet.
+[uDD::Err][2018-05-30 06:14:41] Monitor::GetPixels() => CopyTextureFromGpuToCpu() has not been called yet.
+[uDD::Err][2018-05-30 06:14:41] Monitor::GetPixels() => CopyTextureFromGpuToCpu() has not been called yet.
+[uDD::Log][2018-05-30 06:15:08] Stop

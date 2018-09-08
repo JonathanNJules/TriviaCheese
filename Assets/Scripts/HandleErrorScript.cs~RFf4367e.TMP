@@ -1,0 +1,34 @@
+﻿using UnityEngine;
+using UnityEngine.UI;
+
+public class HandleErrorScript : MonoBehaviour {
+
+    [HideInInspector]
+    public short errorType = 0; // 0 = No Error | 1 = Error Reading Image | 2 = Error Reading HTML
+    private bool setErrorMessage;
+    public Image errorMessageImage;
+    public Text errorMessageText;
+    private float errorMessageImageRef;
+    public RectTransform retryButton;
+    private Vector3 retryButtonPos;
+    private Vector3 retryButtonRef;
+
+    void Start () {
+        retryButtonPos = new Vector3(0, -76, -98);
+	}
+	
+	void Update () {
+        if (errorType == 0) return;
+
+        if (!setErrorMessage) {
+            if (errorType == 1)
+                errorMessageText.text = "Uh oh, it looks like we had trouble reading the image from your capture window!";
+            else
+                errorMessageText.text = "Uh oh, it looks like we had trouble searching for the answer! Google may have blocked us from using their results!";
+            setErrorMessage = true;
+        }
+
+        retryButton.anchoredPosition3D = Vector3.SmoothDamp(retryButton.anchoredPosition3D, retryButtonPos, ref retryButtonRef, 0.18f);
+        errorMessageImage.fillAmount = Mathf.SmoothDamp(errorMessageImage.fillAmount, 1, ref errorMessageImageRef, 0.15f);
+	}
+}

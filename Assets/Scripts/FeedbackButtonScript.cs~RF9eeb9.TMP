@@ -1,0 +1,52 @@
+﻿using UnityEngine;
+using UnityEngine.UI;
+
+public class FeedbackButtonScript : MonoBehaviour {
+
+    public bool thumbsUp, thumbsDown;
+    public Text message;
+    private Image image, thumb;
+    private PopupPanelScript pps;
+
+	void Start () {
+        image = GetComponent<Image>();
+        pps = transform.parent.parent.GetComponent<PopupPanelScript>();
+        thumb = transform.GetChild(0).GetComponent<Image>();
+	}
+
+    public void NowThumbsDown()
+    {
+        // If the popup panel isn't even active, ignore all input
+        if (!pps.active) return;
+        // Dim the Thumbs Up button and brighten the Thumbs Down button
+        if (thumbsDown)
+        {
+            thumb.color = new Color(0.73f, 0.16f, 0.09f);
+            image.color = new Color(0.74f, 0.16f, 0.09f);
+        }
+        if (thumbsUp)
+        {
+            thumb.color = new Color(0.11f, 0.26f, 0.04f);
+            image.color = new Color(.3f, .3f, .3f, 1);
+            message.text = "Thank you for the feedback!";
+        }
+    }
+
+    public void NowThumbsUp()
+    {
+        // If the popup panel isn't even active, ignore all input
+        if (!pps.active) return;
+        // Brighten the Thumbs Up button and dim the Thumbs Down button
+        if (thumbsDown)
+        {
+            thumb.color = new Color(0.28f, 0.06f, 0.04f);
+            image.color = new Color(.3f, .3f, .3f, 1);
+        }
+        if (thumbsUp)
+        {
+            thumb.color = new Color(0.29f, 0.74f, 0.09f);
+            image.color = new Color(0.29f, 0.74f, 0.09f);
+            message.text = "Thank you for the feedback!";
+        }
+    }
+}
